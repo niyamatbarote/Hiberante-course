@@ -10,6 +10,8 @@ public class App
     {
         System.out.println( "Hello World!" );
         System.out.println( "We are Going to learn Hibernate..! " );
-        
+
+        // create Student
+        // SAVE : hibernate
     }
 }
