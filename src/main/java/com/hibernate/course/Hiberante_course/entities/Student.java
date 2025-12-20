@@ -1,10 +1,10 @@
 package com.hibernate.course.Hiberante_course.entities;
 
-import com.sun.tools.javac.comp.Resolve;
+//import com.sun.tools.javac.comp.Resolve;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Student")
+@Table(name = "Students")
 public class Student {
 
     @Id
@@ -15,7 +15,6 @@ public class Student {
     private String Name;
 
     @Column(name = "RollCall", unique = true, nullable = false)
-    @GeneratedValue (strategy = GenerationType.SEQUENCE)
     private int RollNum;
 
     private String College;

@@ -7,7 +7,6 @@
 <hibernate-configuration>
 <session-factory>
 	
-	
         <!-- JDBC configuration settings -->
         <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
 
@@ -18,7 +17,8 @@
         <property name="hibernate.connection.password">Niyamat@2005</property>
 
         <!-- Hibernate configuration settings -->
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+<!--     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>-->
+        <!-- No need of Hibernate dialect as in Latest Versions.. it Does it Automatically -->
 
         <property name="hibernate.show_sql">true</property>
 
@@ -28,10 +28,6 @@
 
         <!-- Entity class mapping -->
         <mapping class="com.hibernate.course.Hiberante_course.entities.Student"/>
-
-
-
-
 
 </session-factory>
 </hibernate-configuration>	
