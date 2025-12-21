@@ -2,10 +2,19 @@ package com.hibernate.course.Hiberante_course.entities;
 
 //import com.sun.tools.javac.comp.Resolve;
 import jakarta.persistence.*;
+import org.hibernate.engine.internal.Cascade;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "Student")
 public class Student {
+
+    // Cascade.ALL means if we delete the stud, all cert related to him will be deleted.
+    // orphanRemoval = true, means removal from one table is related to other table, eg- student, cert..
+    @OneToMany(mappedBy = "student", fetch = FetchType.LAZY, cascade = CascadeType.ALL,orphanRemoval = true)
+    private List<Certificates> certificates = new ArrayList<>();
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)

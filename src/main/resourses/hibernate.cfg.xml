@@ -7,7 +7,7 @@
 <hibernate-configuration>
 <session-factory>
 	
-        <!-- JDBC configuration settings -->
+        <!-- JDBC/Database configuration settings -->
         <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
 
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hibernate</property>
@@ -28,6 +28,8 @@
 
         <!-- Entity class mapping -->
         <mapping class="com.hibernate.course.Hiberante_course.entities.Student"/>
+        <mapping class="com.hibernate.course.Hiberante_course.entities.Certificates"/>
+
 
 </session-factory>
 </hibernate-configuration>	
