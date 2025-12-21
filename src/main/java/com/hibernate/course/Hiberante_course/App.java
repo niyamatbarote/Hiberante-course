@@ -16,7 +16,8 @@ public class App
 
         // create Student
         // SAVE : hibernate
-
+        
         System.out.println(HibernateUtil.getsessionFactory());
+
     }
 }

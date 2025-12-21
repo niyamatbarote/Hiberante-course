@@ -63,7 +63,7 @@ public class HibernateUtil {
             e.printStackTrace();
         }
     }
-    public  static SessionFactory getSessionFactory(){
+    public  static SessionFactory getsessionFactory(){
         return sessionFactory;
     }
 }
