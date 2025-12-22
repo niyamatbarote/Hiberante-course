@@ -124,12 +124,10 @@ public class StudentManagement {
     // Get Student By Name :-
     public Student getByName(String Name) {
         try(Session session = sessionFactory.openSession()) {
-            // Here " :Name " acts as a Placeholder....i.e. its a DYNAMIC QUERY
-            String nameHQL = "FROM Student WHERE Name = :Name ";
-            Query<Student> query = session.createQuery(nameHQL, Student.class);
-            query.setParameter("Name",Name);
+            String setHQL = "FROM Student WHERE Name = :StudName";
+            Query<Student> query = session.createQuery(setHQL, Student.class);
+            query.setParameter("StudName", Name);
             return query.uniqueResult();
         }
-
     }
 }
