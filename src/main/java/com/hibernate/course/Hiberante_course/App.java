@@ -25,8 +25,8 @@ public class App {
         student1.setName("Niyamat");
         student1.setRollNum(1);
         student1.setCollege("Alard College of Engg");
-        student1.setStandard("TE");
-        student1.setScore(9.0);
+        student1.setStandard("BE");
+        student1.setScore(8.0);
         student1.setAbout("He is a Bright Student");
 
 
@@ -43,18 +43,20 @@ public class App {
         cert1.setLink("www.scaler.com");
         cert1.setCert_about("This is Java Certificate. ");
         cert1.setStudent(student1);
+        student1.getCertificates().add(cert1);
 
         Certificates cert2 = new Certificates();
         cert2.setTitle("Python Certficate");
         cert2.setLink("www.greatlearning.com");
         cert2.setCert_about("You performed very good ");
         cert2.setStudent(student2);
+        student2.getCertificates().add(cert2);
 // Assign Certificates to Students :-
 
 
 // Receive Certificate as a Student :-
-        student1.getCertificates().add(cert1);
-        student2.getCertificates().add(cert2);
+//        student1.getCertificates().add(cert1);
+
 
 
 

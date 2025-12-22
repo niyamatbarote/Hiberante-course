@@ -10,8 +10,8 @@ public class Certificates {
     public Student getStudent() {
         return student;
     }
-    public void setStudent(Student student ) {
-        return student;
+    public void setStudent(Student student) {
+        this.student= student;
     }
 
     @ManyToOne
@@ -59,8 +59,8 @@ public class Certificates {
     }
 
     private String Cert_about;
-
-    public void setStudent(Student student) {
-        this.student=student;
-    }
+//
+//    public void setStudent(Student student) {
+//        this.student = student;
+//    }
 }

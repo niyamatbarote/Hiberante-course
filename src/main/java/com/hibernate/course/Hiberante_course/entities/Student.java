@@ -46,7 +46,7 @@ public class Student {
         return Name;
     }
 
-    @Column(name = "RollCall", unique = true, nullable = false)
+    @Column(name = "RollCall", nullable = false)
     private int RollNum;
 
     public int getRollNum () {
