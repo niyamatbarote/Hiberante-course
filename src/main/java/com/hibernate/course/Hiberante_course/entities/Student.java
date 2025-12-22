@@ -1,6 +1,7 @@
 package com.hibernate.course.Hiberante_course.entities;
 
 //import com.sun.tools.javac.comp.Resolve;
+//import com.sun.org.apache.xml.internal.security.keys.content.X509Data;
 import jakarta.persistence.*;
 import org.hibernate.engine.internal.Cascade;
 
@@ -11,9 +12,17 @@ import java.util.List;
 @Table(name = "Student")
 public class Student {
 
+    public List<Certificates> getCertificates() {
+        return certificates;
+    }
+
+    public void setCertificates(List<Certificates> certificates) {
+        this.certificates = certificates;
+    }
+
     // Cascade.ALL means if we delete the stud, all cert related to him will be deleted.
     // orphanRemoval = true, means removal from one table is related to other table, eg- student, cert..
-    @OneToMany(mappedBy = "student", fetch = FetchType.LAZY, cascade = CascadeType.ALL,orphanRemoval = true)
+    @OneToMany(mappedBy = "student", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Certificates> certificates = new ArrayList<>();
 
     @Id
@@ -83,4 +92,6 @@ public class Student {
     public void setAbout(String abt) {
         this.About = abt;
     }
+
+
 }

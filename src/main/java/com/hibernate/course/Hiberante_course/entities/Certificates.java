@@ -4,8 +4,15 @@ package com.hibernate.course.Hiberante_course.entities;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name ="Certificates")
+@Table(name ="certificates")
 public class Certificates {
+
+    public Student getStudent() {
+        return student;
+    }
+    public void setStudent(Student student ) {
+        return student;
+    }
 
     @ManyToOne
     @JoinColumn(name = "StudId")
@@ -52,4 +59,8 @@ public class Certificates {
     }
 
     private String Cert_about;
+
+    public void setStudent(Student student) {
+        this.student=student;
+    }
 }
