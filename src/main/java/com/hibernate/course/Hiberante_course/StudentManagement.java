@@ -5,7 +5,9 @@ import com.hibernate.course.Hiberante_course.entities.Student;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class StudentManagement {
@@ -111,6 +113,23 @@ public class StudentManagement {
     // Database Independent
 
     // Get All the Student Using HQL :-
+    public List<Student> getAllStudents( ) {
+        try (Session session = sessionFactory.openSession()) {
+            String myHQL = "FROM Student";
+            Query<Student> query = session.createQuery(myHQL, Student.class);
+            return query.list();
+        }
+    }
 
+    // Get Student By Name :-
+    public Student getByName(String Name) {
+        try(Session session = sessionFactory.openSession()) {
+            // Here " :Name " acts as a Placeholder....i.e. its a DYNAMIC QUERY
+            String nameHQL = "FROM Student WHERE Name = :Name ";
+            Query<Student> query = session.createQuery(nameHQL, Student.class);
+            query.setParameter("Name",Name);
+            return query.uniqueResult();
+        }
 
+    }
 }
