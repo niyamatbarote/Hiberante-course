@@ -14,7 +14,6 @@ import org.hibernate.Transaction;
 public class App {
     public static void main( String[] args ) {
 
-        System.out.println( "Hello World!" );
         System.out.println( "We are Going to learn Hibernate..! " );
 
         // create Student
@@ -22,33 +21,33 @@ public class App {
 
         // Create student Object:-
         Student student1 = new Student();
-        student1.setName("Niyamat");
-        student1.setRollNum(1);
-        student1.setCollege("Alard College of Engg");
+        student1.setName("Naman");
+        student1.setRollNum(3);
+        student1.setCollege("Alard College of Management");
         student1.setStandard("BE");
-        student1.setScore(8.0);
-        student1.setAbout("He is a Bright Student");
+        student1.setScore(9.8);
+        student1.setAbout("He is a Smart Student");
 
 
         Student student2 = new Student();
-        student2.setName("Pranav");
-        student2.setRollNum(2);
-        student2.setCollege("Alard College of Engg");
-        student2.setStandard("TE");
-        student2.setScore(9.5);
-        student2.setAbout("He Goes to Gym..!!");
+        student2.setName("Rushikesh");
+        student2.setRollNum(4);
+        student2.setCollege("MIT");
+        student2.setStandard("SE");
+        student2.setScore(9.8);
+        student2.setAbout("He Got a Job..!!");
 
         Certificates cert1 = new Certificates();
-        cert1.setTitle("Java Certficate");
+        cert1.setTitle("Generative AI");
         cert1.setLink("www.scaler.com");
-        cert1.setCert_about("This is Java Certificate. ");
+        cert1.setCert_about("This is AI Certificate. ");
         cert1.setStudent(student1);
         student1.getCertificates().add(cert1);
 
         Certificates cert2 = new Certificates();
-        cert2.setTitle("Python Certficate");
+        cert2.setTitle("ML Certficate");
         cert2.setLink("www.greatlearning.com");
-        cert2.setCert_about("You performed very good ");
+        cert2.setCert_about("You did very good ");
         cert2.setStudent(student2);
         student2.getCertificates().add(cert2);
 // Assign Certificates to Students :-
