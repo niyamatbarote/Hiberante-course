@@ -38,29 +38,24 @@ public class StudentManagement {
             Student stud = new Student();
 
             System.out.println("Enter Name of the Student: ");
-            String name = sc.nextLine();
-            sc.nextLine();
-            stud.setName(name);
+            stud.setName(sc.nextLine());
+
             System.out.println("Enter RollNum of the Student : ");
-            int num = sc.nextInt();
+            stud.setRollNum(sc.nextInt());
             sc.nextLine();
-            stud.setRollNum(num);
+
             System.out.println("Enter College Name: ");
-            String clg = sc.nextLine();
-            sc.nextLine();
-            stud.setCollege(clg);
+            stud.setCollege(sc.nextLine());
+
             System.out.println("Enter Standard : ");
-            String std = sc.nextLine();
-            sc.nextLine();
-            stud.setStandard(std);
+            stud.setStandard(sc.nextLine());
+
             System.out.println("Enter Score: ");
-            double score = sc.nextInt();
+            stud.setScore(sc.nextDouble());
             sc.nextLine();
-            stud.setScore(score);
+
             System.out.println("Enter About Student : ");
-            String about = sc.nextLine();
-            sc.nextLine();
-            stud.setAbout(about);
+            stud.setAbout(sc.nextLine());
 
             session.persist(stud);
             txn4.commit();
@@ -70,35 +65,49 @@ public class StudentManagement {
     }
 
     // 2) READ :
-    public Student getById(long StudeId) {
+    public void getById(long StudId) {
 
         try(Session session = sessionFactory.openSession()) {
-            Student student1 = session.getReference(Student.class, StudeId);
-            return student1;
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-            return null;
+            Student student1 = session.find (Student.class, StudId);
+            System.out.println(student1.getName());
+            System.out.println(student1.getCollege());
+            System.out.println(student1.getRollNum());
+            System.out.println(student1.getStandard());
+            System.out.println(student1.getScore());
+            System.out.println(student1.getAbout());
+            System.out.println(student1.getCertificates());
         }
     }
 
     // 3) UPDATE :
-    public Student updateStudent(long StudId, Student student) {
-        try(Session session = sessionFactory.openSession()) {
-            Transaction txn2 = session.beginTransaction();
-            Student student2 = session.getReference(Student.class, StudId);
-            if (student2 != null) {
-                student2.setName(student.getName());
-                student2.setCollege(student.getCollege());
-                student2.setRollNum(student.getRollNum());
-                student2.setStandard(student.getStandard());
-                student2.setScore(student.getScore());
-                student2.setAbout(student.getAbout());
+    public void updateStudent(long studId) {
+        try (Session session = sessionFactory.openSession()) {
+            Transaction txn = session.beginTransaction();
+            Student s = session.getReference(Student.class, studId);
 
-                session.merge(student2);
+            if (s == null) {
+                System.out.println("Student not found!");
+                return;
             }
-            txn2.commit();
-            return student2;
+
+            System.out.print("Enter New Name: ");
+            s.setName(sc.nextLine());
+
+            System.out.print("Enter New College: ");
+            s.setCollege(sc.nextLine());
+
+            System.out.print("Enter New Standard: ");
+            s.setStandard(sc.nextLine());
+
+            System.out.print("Enter New Score: ");
+            s.setScore(sc.nextDouble());
+            sc.nextLine();
+
+            System.out.print("Enter New About: ");
+            s.setAbout(sc.nextLine());
+
+            txn.commit();
+            System.out.println("Student Updated Successfully!");
         }
     }
 

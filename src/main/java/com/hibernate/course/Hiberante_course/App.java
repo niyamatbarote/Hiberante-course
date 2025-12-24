@@ -18,66 +18,68 @@ public class App {
         System.out.println( "We are Going to Perform CRUD Ops..! " );
         StudentManagement sm = new StudentManagement();
 
+        boolean cont = true;
+        while(cont) {
         int choice;
         System.out.println("\n=======Student Management======");
         System.out.println("1. Insert/Create Student : ");
         System.out.println("2. Search/Read Student : ");
         System.out.println("3. Update Student : ");
         System.out.println("4. Delete Student : ");
-        System.out.println("5. Save Student");
         System.out.println("5. Exit \n");
         System.out.println("Enter Your Choice: ");
+
         choice = sc.nextInt();
 
-        switch (choice) {
-            case 1: // Insert
-                sm.insertStud();
-                break;
+            switch (choice) {
+                case 1: // Insert
+                    sm.insertStud();
+                    break;
 
-            case 2: // Search/Read
-                System.out.println("Enter The student ID to GET Information About Student: ");
-                int myId = sc.nextInt();
-                sc.nextLine();
-                Student student1 = sm.getById(myId);
-                if (student1 != null) {
-                    System.out.println("Student id: "+ student1.getStudId() );
-                    System.out.println("Student Name: "+ student1.getName() );
-                    System.out.println("Student College: "+ student1.getCollege() );
-                    System.out.println("Student Standard: "+ student1.getStandard() );
-                    System.out.println("Student Result: "+ student1.getScore() );
-                    System.out.println("Student About: "+ student1.getAbout() );
-//                    System.out.println("Student id: "+ student1.getCertificates() );
-                }else {
-                    System.out.println("Student Not Found..!!");
-                }
+                case 2: // Search/Read
+                    System.out.println("Enter The student ID to GET Information About Student: ");
+//                    int myId = sc.nextInt();
+//                    sc.nextLine();
+                    Student student1 = sm.getById(sc.nextLong());
+
+                    if (student1 == null) {
+                        System.out.println("Student Not Found..!!");
+                    } else {
+                        System.out.println("Student id: " + student1.getStudId());
+                        System.out.println("Student Name: " + student1.getName());
+                        System.out.println("Student College: " + student1.getCollege());
+                        System.out.println("Student Standard: " + student1.getStandard());
+                        System.out.println("Student Result: " + student1.getScore());
+                        System.out.println("Student About: " + student1.getAbout());
+                    System.out.println("Student id: "+ student1.getCertificates() );
+                    }
 //                sm.getById(myId);
-                break;
+                    break;
 
-            case 3: // Update Student
-                System.out.println("Enter The student ID to UPDATE Information About Student: ");
-                int upID = sc.nextInt();
-                sc.nextLine();
-                Student student = sm.getById(upID);
-                sm.updateStudent(upID, student);
-                break;
+                case 3: // Update Student
+                    System.out.println("Enter The student ID to UPDATE Information About Student: ");
+                    int upID = sc.nextInt();
+                    sc.nextLine();
+                    Student student = sm.getById(upID);
+                    sm.updateStudent(upID);
+                    break;
 
-            case 4: // Delete :
-                System.out.println("Enter The student ID to DELETE Information About Student: ");
-                int delId = sc.nextInt();
-                sc.nextLine();
-                sm.deleteStud(delId);
-                break;
+                case 4: // Delete :
+                    System.out.println("Enter The student ID to DELETE Information About Student: ");
+                    int delId = sc.nextInt();
+                    sc.nextLine();
+                    sm.deleteStud(delId);
+                    break;
 
-            case 5:// SAVE
-                sm.insertStud();
+                case 5: // Exit
+                    cont = false;
+                    System.out.println(" Exititng ..!! ");
+                    break;
 
-            case 6: // Exit
-                System.out.println( " Exititng ..!! ");
-                break;
+                default:
+                    System.out.println("Invalid Choice.. ");
 
-            default:
-                System.out.println("Invalid Choice.. ");
-
+            }
         }
 
 
