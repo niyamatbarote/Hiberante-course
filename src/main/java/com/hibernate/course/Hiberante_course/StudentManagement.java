@@ -2,6 +2,7 @@ package com.hibernate.course.Hiberante_course;
 
 import com.hibernate.course.Hiberante_course.Util.HibernateUtil;
 import com.hibernate.course.Hiberante_course.entities.Student;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -65,19 +66,12 @@ public class StudentManagement {
     }
 
     // 2) READ :
-    public void getById(long StudId) {
-
-        try(Session session = sessionFactory.openSession()) {
-            Student student1 = session.find (Student.class, StudId);
-            System.out.println(student1.getName());
-            System.out.println(student1.getCollege());
-            System.out.println(student1.getRollNum());
-            System.out.println(student1.getStandard());
-            System.out.println(student1.getScore());
-            System.out.println(student1.getAbout());
-            System.out.println(student1.getCertificates());
+    public Student getById(long studId) {
+        try (Session session = sessionFactory.openSession()) {
+            return session.find(Student.class, studId); //  return student
         }
     }
+
 
     // 3) UPDATE :
     public void updateStudent(long studId) {

@@ -38,9 +38,10 @@ public class App {
 
                 case 2: // Search/Read
                     System.out.println("Enter The student ID to GET Information About Student: ");
-//                    int myId = sc.nextInt();
-//                    sc.nextLine();
-                    Student student1 = sm.getById(sc.nextLong());
+                    long myId = sc.nextLong();
+                    sc.nextLine();
+
+                    Student student1 = sm.getById(myId);
 
                     if (student1 == null) {
                         System.out.println("Student Not Found..!!");
@@ -51,9 +52,8 @@ public class App {
                         System.out.println("Student Standard: " + student1.getStandard());
                         System.out.println("Student Result: " + student1.getScore());
                         System.out.println("Student About: " + student1.getAbout());
-                    System.out.println("Student id: "+ student1.getCertificates() );
+//                    System.out.println("Student id: "+ student1.getCertificates() );
                     }
-//                sm.getById(myId);
                     break;
 
                 case 3: // Update Student
