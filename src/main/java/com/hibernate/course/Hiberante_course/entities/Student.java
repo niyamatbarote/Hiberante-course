@@ -22,7 +22,7 @@ public class Student {
 
     // Cascade.ALL means if we delete the stud, all cert related to him will be deleted.
     // orphanRemoval = true, means removal from one table is related to other table, eg- student, cert..
-    @OneToMany(mappedBy = "student", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "student", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Certificates> certificates = new ArrayList<>();
 
     @Id

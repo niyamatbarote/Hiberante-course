@@ -24,6 +24,7 @@ public class App {
         System.out.println("2. Search/Read Student : ");
         System.out.println("3. Update Student : ");
         System.out.println("4. Delete Student : ");
+        System.out.println("5. Save Student");
         System.out.println("5. Exit \n");
         System.out.println("Enter Your Choice: ");
         choice = sc.nextInt();
@@ -67,7 +68,10 @@ public class App {
                 sm.deleteStud(delId);
                 break;
 
-            case 5: // Exit
+            case 5:// SAVE
+                sm.insertStud();
+
+            case 6: // Exit
                 System.out.println( " Exititng ..!! ");
                 break;
 

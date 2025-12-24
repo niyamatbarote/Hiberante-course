@@ -39,27 +39,27 @@ public class StudentManagement {
 
             System.out.println("Enter Name of the Student: ");
             String name = sc.nextLine();
-            sc.nextInt();
+            sc.nextLine();
             stud.setName(name);
             System.out.println("Enter RollNum of the Student : ");
             int num = sc.nextInt();
-            sc.nextInt();
+            sc.nextLine();
             stud.setRollNum(num);
             System.out.println("Enter College Name: ");
             String clg = sc.nextLine();
-            sc.nextInt();
+            sc.nextLine();
             stud.setCollege(clg);
             System.out.println("Enter Standard : ");
             String std = sc.nextLine();
-            sc.nextInt();
+            sc.nextLine();
             stud.setStandard(std);
             System.out.println("Enter Score: ");
             double score = sc.nextInt();
-            sc.nextInt();
+            sc.nextLine();
             stud.setScore(score);
             System.out.println("Enter About Student : ");
             String about = sc.nextLine();
-            sc.nextInt();
+            sc.nextLine();
             stud.setAbout(about);
 
             session.persist(stud);
