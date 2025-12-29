@@ -83,7 +83,7 @@ public class Student {
         this.Standard = std;
     }
 
-    @Lob    // ( Large objects ) Used to stored Large amount of INformation
+    @Lob    // ( Large objects ) Used to stored Large amount of INformatio
     private String About;
 
     public String getAbout() {
